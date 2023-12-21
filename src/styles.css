@@ -1,0 +1,54 @@
+*{
+   box-sizing: border-box; 
+}
+body{
+    margin:0;
+}
+
+.site-title{
+    font-size: 28px;
+}
+
+.nav{
+    width:100%;
+    background-color: white;
+    color:black;
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 0 1rem;
+    margin-bottom: 150px;
+    top: 0;
+    right: 0;
+    position: fixed;
+}
+
+.nav ul{
+    padding:0;
+    margin:0;
+    list-style: none;
+    display:inline;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:2rem;
+}
+
+li{
+    display: inline;
+    padding:10px;
+    text-align: center;
+}
+
+
+li a:hover
+{
+    background-color: rgb(175, 170, 170);
+    color:black;
+}
+
+.nav a{
+color:inherit;
+height:100%;
+padding: .25rem;
+
+}
