@@ -52,3 +52,7 @@ height:100%;
 padding: .25rem;
 
 }
+
+.findmore:hover{
+background-color: grey;
+}

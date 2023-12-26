@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.css";
 import "../styles.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +11,7 @@ export default function Navbar() {
         Fake Store
       </Link>
       <ul>
-        <CustomLink to="/home">Home</CustomLink>
+        <CustomLink to="/">Home</CustomLink>
         <CustomLink to="/about">About</CustomLink>
         <CustomLink to="/allproducts">All Products</CustomLink>
         <CustomLink to="/favorite">

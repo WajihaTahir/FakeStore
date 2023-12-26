@@ -10,6 +10,9 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import { Route, Routes } from "react-router-dom";
 import Favorites from "./components/Favorites";
+import Productmodal from "./components/Productmodal";
+import Productsdetails from "./components/Productsdetails";
+import Footer from "./components/Footer";
 
 function App() {
   //   let Component;
@@ -38,8 +41,13 @@ function App() {
   //   break
   // }
 
-  let [search, setSearch] = useState("");
+  // let [search, setSearch] = useState("");
   let [fetchedData, updateFetchedData] = useState([]);
+  let [currentProduct, setCurrentProduct] = useState({});
+  let [isModalOpen, setIsModalOpen] = useState(false);
+  //let [isModalClose] = useState(true);
+
+
 
   async function fetchData() {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -50,7 +58,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   return (
     <>
       <Navbar />
@@ -58,14 +66,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/allproducts" element={<Products results={fetchedData}/>} />
+        <Route path="/allproducts" element={<Products results={fetchedData} onProductSelected={setCurrentProduct}
+         onButtonPressed={setIsModalOpen}/>}/>
         <Route path="/favorite" element={<Favorites/> }/>
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/product-detail" element={<Productsdetails/>}/>
       </Routes>
-      <div className="row" style={{ display: "flex" }}>
-      </div>
+      {isModalOpen && (
+          <Productmodal
+            currentProduct={currentProduct}
+            onbtnclicked={setIsModalOpen}
+          />
+        )}
+        <Footer/>
     </>
   );
 }
