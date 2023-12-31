@@ -3,6 +3,7 @@ import "../styles.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import Authentication from "./Authentication";
 
 export default function Navbar() {
   return (
@@ -18,8 +19,9 @@ export default function Navbar() {
           <FontAwesomeIcon icon={faHeart} />
         </CustomLink>
         <CustomLink to="/cart">Cart</CustomLink>
-        <CustomLink to="/login">Login</CustomLink>
-        <CustomLink to="register">Register</CustomLink>
+        <Authentication/>
+        {/* <CustomLink to="/login">Login</CustomLink>
+        <CustomLink to="/register">Sign Up</CustomLink> */}
       </ul>
     </nav>
   );
